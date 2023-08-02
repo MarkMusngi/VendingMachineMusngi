@@ -99,7 +99,7 @@ public class Main {
                                 System.out.println("2. Quarter");
                                 System.out.println("3. Dime");
                                 System.out.println("4. Nickel");
-                                System.out.println("4. Penny");
+                                System.out.println("5. Penny");
 
                                 boolean doneEntering = false;
                                 while (!doneEntering) {
@@ -296,7 +296,7 @@ public class Main {
                                 System.out.println("2. Quarter");
                                 System.out.println("3. Dime");
                                 System.out.println("4. Nickel");
-                                System.out.println("4. Penny");
+                                System.out.println("5. Penny");
 
                                 Denomination paymentDenomination = new Denomination();
 
@@ -364,7 +364,7 @@ public class Main {
                                     System.out.println("2. Quarter");
                                     System.out.println("3. Dime");
                                     System.out.println("4. Nickel");
-                                    System.out.println("4. Penny");
+                                    System.out.println("5. Penny");
                                     if (!doneEnteringOrder) {
                                         do {
                                             int denominationChoice = scanner.nextInt();
@@ -598,8 +598,12 @@ public class Main {
         // Regular items (non-ramen items)
         Item coke = new Item("Coke", 0.63, 140);
         Item tamago = new Item("Tamago", 0.78, 80);
-        Item gyoza = new Item("Gyoza", 1.25, 180); // Japanese dumplings
+        Item gyoza = new Item("Gyoza", 1.25, 180);
         Item onigiri = new Item("Onigiri", 1.0, 250);
+        Item chips = new Item("Chips", 1.2, 200);
+        Item candy = new Item("Candy", 0.5, 120);
+        Item chocolateBar = new Item("Chocolate Bar", 1.0, 220);
+        Item cookies = new Item("Cookies", 1.5, 180);
 
         VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.addItem(coke);
@@ -610,6 +614,14 @@ public class Main {
         vendingMachine.restockItem(gyoza, 15);
         vendingMachine.addItem(onigiri);
         vendingMachine.restockItem(onigiri, 12);
+        vendingMachine.addItem(chips);
+        vendingMachine.restockItem(chips, 20);
+        vendingMachine.addItem(candy);
+        vendingMachine.restockItem(candy, 25);
+        vendingMachine.addItem(chocolateBar);
+        vendingMachine.restockItem(chocolateBar, 15);
+        vendingMachine.addItem(cookies);
+        vendingMachine.restockItem(cookies, 18);
 
         vendingMachine.updateStartingInventory();
         vendingMachine.updateEndingInventory();
@@ -621,19 +633,22 @@ public class Main {
         // Regular items (non-ramen items)
         Item coke = new Item("Coke", 0.63, 140);
         Item tamago = new Item("Tamago", 0.78, 80);
-        Item gyoza = new Item("Gyoza", 1.25, 180); // Japanese dumplings
-        Item onigiri = new Item("Onigiri", 1.0, 250); // Rice ball with filling
+        Item gyoza = new Item("Gyoza", 1.25, 180);
+        Item onigiri = new Item("Onigiri", 1.0, 250);
 
         // Ramen ingredients
-        Item noodles = new Item("Noodles", 1.0, 350); // Assumed 350 calories for a serving of noodles
-        Item egg = new Item("Egg", 0.5, 70); // Boiled egg
-        Item chashuPork = new Item("Chashu Pork", 1.2, 200); // Sliced and seasoned pork
-        Item friedTofu = new Item("Fried Tofu", 0.8, 120); // Abura-age, fried tofu pouch
-        Item negi = new Item("Negi", 0.3, 10); // Green onions, scallions
+        Item chukamen = new Item("Chukamen Noodles", 1.0, 350);
+        Item hakata = new Item("Hakata Noodles", 2.0, 320);
+        Item sapporo = new Item("Sapporo Noodles", 2.0, 320);
+        Item chashuPork = new Item("Chashu Pork", 1.2, 200);
+        Item friedTofu = new Item("Fried Tofu", 0.8, 120);
         Item tonkotsuBroth = new Item("Tonkotsu Broth", 1.5, 100); // Pork bone broth
         Item misoBroth = new Item("Miso Broth", 1.2, 80); // Soybean paste broth
         Item shioBroth = new Item("Shio Broth", 1.1, 70); // Salt-based clear broth
+        Item negi = new Item("Negi", 0.3, 10); // Green onions, scallions
         Item menma = new Item("Menma", 0.6, 40); // Bamboo shoots
+        Item garlic = new Item("Garlic", 0.1, 5);
+        Item chili = new Item("Chili", 0.2, 10);
 
         SpecialVendingMachine specialVendingMachine = new SpecialVendingMachine();
         specialVendingMachine.inputMoney(100, 1);
@@ -649,10 +664,12 @@ public class Main {
         specialVendingMachine.addItem(onigiri);
         specialVendingMachine.restockItem(onigiri, 12);
 
-        specialVendingMachine.addItem(noodles);
-        specialVendingMachine.restockItem(noodles, 20);
-        specialVendingMachine.addItem(egg);
-        specialVendingMachine.restockItem(egg, 30);
+        specialVendingMachine.addItem(chukamen);
+        specialVendingMachine.restockItem(chukamen, 20);
+        specialVendingMachine.addItem(hakata);
+        specialVendingMachine.restockItem(hakata, 20);
+        specialVendingMachine.addItem(sapporo);
+        specialVendingMachine.restockItem(sapporo, 30);
         specialVendingMachine.addItem(chashuPork);
         specialVendingMachine.restockItem(chashuPork, 25);
         specialVendingMachine.addItem(friedTofu);
@@ -667,8 +684,14 @@ public class Main {
         specialVendingMachine.restockItem(shioBroth, 10);
         specialVendingMachine.addItem(menma);
         specialVendingMachine.restockItem(menma, 15);
+        specialVendingMachine.addItem(garlic);
+        specialVendingMachine.restockItem(garlic, 15);
+        specialVendingMachine.addItem(chili);
+        specialVendingMachine.restockItem(chili, 15);
 
-        specialVendingMachine.initializeRamenItems("Noodles");
+        specialVendingMachine.initializeRamenItems("Chukamen Noodles");
+        specialVendingMachine.initializeRamenItems("Hakata Noodles");
+        specialVendingMachine.initializeRamenItems("Sapporo Noodles");
         specialVendingMachine.initializeRamenItems("Tonkotsu Broth");
         specialVendingMachine.initializeRamenItems("Shio Broth");
         specialVendingMachine.initializeRamenItems("Miso Broth");

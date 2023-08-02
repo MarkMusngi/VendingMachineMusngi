@@ -153,7 +153,7 @@ public class VendingMachine {
      *                dollars).
      */
     public void returnChange(double dChange) {
-        int changeInCents = (int) (dChange * 100);
+        int changeInCents = (int) (dChange * 100); // Convert the change to cents for easier calculations
 
         int dollarsToGiveBack = 0;
         if (coinDenominations.getDollars() > 0 && changeInCents >= 100) {
@@ -182,7 +182,7 @@ public class VendingMachine {
             changeInCents -= penniesToGiveBack * 1;
         }
 
-        if (changeInCents > 0) {
+        if (changeInCents > 0) { // Check if there's still change remaining
             System.out.println("Vending Machine does not have enough change!");
             return;
         }
@@ -237,7 +237,7 @@ public class VendingMachine {
                 totalPaid += paymentDenomination.getNickels() * 0.05;
                 totalPaid += paymentDenomination.getPennies() * 0.01;
 
-                if (totalPaid >= itemPrice) {
+                if (totalPaid >= itemPrice) { // Check if the payment is sufficient for the item
                     double change = totalPaid - itemPrice;
                     if (checkChange(change)) {
                         itemSlot.dispenseItem(nSelectedItemSlot);
@@ -245,7 +245,7 @@ public class VendingMachine {
                             inventory.remove(nSelectedItemSlot);
                         }
 
-                        dMoney += itemPrice;
+                        dMoney += itemPrice; // Increase the total money
 
                         coinDenominations.addDollars(paymentDenomination.getDollars());
                         coinDenominations.addQuarters(paymentDenomination.getQuarters());
@@ -253,13 +253,14 @@ public class VendingMachine {
                         coinDenominations.addNickels(paymentDenomination.getNickels());
                         coinDenominations.addPennies(paymentDenomination.getPennies());
 
-                        if (restockStartingInventory.isEmpty()) {
+                        if (restockStartingInventory.isEmpty()) { // Update the sales and revenue based on restock
+                                                                  // status
                             updateSalesAndRevenue(nSelectedItemSlot, 1, itemPrice, totalSales);
                         } else {
                             updateSalesAndRevenue(nSelectedItemSlot, 1, itemPrice, totalSalesRestock);
                         }
 
-                        returnChange(change);
+                        returnChange(change); // Return any change to the customer
                         System.out.println("Item purchased successfully!");
                     } else {
                         System.out.println("Vending Machine does not have enough change!");
@@ -598,12 +599,14 @@ public class VendingMachine {
     public void updateSalesAndRevenue(int slotIndex, int quantitySold, double itemPrice, double totalSalesTemp) {
         totalSalesTemp += itemPrice * quantitySold;
 
+        // Update the total sales based on restocking status
         if (restockStartingInventory.isEmpty()) {
             totalSales = totalSalesTemp;
         } else {
             totalSalesRestock = totalSalesTemp;
         }
 
+        // Update the list of sold items based on restocking status and slot index
         if (restockStartingInventory.isEmpty()) {
             if (slotIndex >= 0 && slotIndex < inventory.size()) {
                 ItemSlot itemSlot = inventory.get(slotIndex);

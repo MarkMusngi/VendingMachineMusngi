@@ -111,7 +111,9 @@ public class SpecialVendingMachine extends VendingMachine {
             if (!itemSlot.getItems().isEmpty()) {
                 Item selectedItem = itemSlot.getItems().get(0);
                 if (selectedItem.getName().contains("Garlic")
-                        || selectedItem.getName().contains("Onion") || selectedItem.getName().contains("Noodles")
+                        || selectedItem.getName().contains("Chili") || selectedItem.getName().contains("Negi")
+                        || selectedItem.getName().contains("Menma")
+                        || selectedItem.getName().contains("Noodles")
                         || selectedItem.getName().contains("Broth")) {
                     return 0;
                 } else
@@ -157,7 +159,7 @@ public class SpecialVendingMachine extends VendingMachine {
         ArrayList<Item> toppingsList = new ArrayList<>();
 
         for (Item item : chosenItems) {
-            if (item.getName().equals("Noodles") || item.getName().contains("Broth")) {
+            if (item.getName().contains("Noodles") || item.getName().contains("Broth")) {
                 // Do nothing with "Noodles" and "Broth"
             } else {
                 toppingsList.add(item);
@@ -227,7 +229,7 @@ public class SpecialVendingMachine extends VendingMachine {
             totalPaid += paymentDenomination.getNickels() * 0.05;
             totalPaid += paymentDenomination.getPennies() * 0.01;
 
-            if (totalPaid >= itemPrice) {
+            if (totalPaid >= itemPrice) { // Check if the payment is sufficient for the item
                 double change = totalPaid - itemPrice;
                 if (checkChange(change)) {
                     int nSelectedItemSlot = inventory.indexOf(itemSlot);
@@ -236,7 +238,7 @@ public class SpecialVendingMachine extends VendingMachine {
                         inventory.remove(nSelectedItemSlot);
                     }
 
-                    dMoney += itemPrice;
+                    dMoney += itemPrice; // Increase the total money
 
                     coinDenominations.addDollars(paymentDenomination.getDollars());
                     coinDenominations.addQuarters(paymentDenomination.getQuarters());
