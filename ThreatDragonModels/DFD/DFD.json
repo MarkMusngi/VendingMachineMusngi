@@ -19,16 +19,16 @@
         "cells": [
           {
             "position": {
-              "x": 490,
-              "y": 410
+              "x": 930,
+              "y": 330.00000000000017
             },
             "size": {
-              "width": 60,
-              "height": 60
+              "width": 200,
+              "height": 130
             },
             "attrs": {
               "text": {
-                "text": "Browser Client"
+                "text": "Browser Clientr"
               },
               "body": {
                 "stroke": "#333333",
@@ -104,27 +104,27 @@
               "items": [
                 {
                   "group": "top",
-                  "id": "fea46d61-3b86-4355-b5f5-b287747c052d"
+                  "id": "a4d24447-579b-4cc6-aa60-c461e2d58cb9"
                 },
                 {
                   "group": "right",
-                  "id": "2db96519-75ae-4ddb-a024-f6c246f233fd"
+                  "id": "619389f9-7ace-46b3-930b-ffce665e45bb"
                 },
                 {
                   "group": "bottom",
-                  "id": "4dadc7cd-6dda-4c46-ba09-d4a5af8e4b76"
+                  "id": "265ebfb8-939f-44ff-a581-8480dd52cc1c"
                 },
                 {
                   "group": "left",
-                  "id": "4880112a-dc7c-44f0-92ea-6eec5b67afdc"
+                  "id": "aaec3edb-7f17-4105-97ad-cd6672adbde9"
                 }
               ]
             },
-            "id": "15383c51-219b-4d5a-b181-c561937d4efc",
+            "id": "75cf0b7f-15d5-468a-b173-c6a561f6ab00",
             "zIndex": 1,
             "data": {
               "type": "tm.Process",
-              "name": "Browser Client",
+              "name": "Browser Clientr",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
