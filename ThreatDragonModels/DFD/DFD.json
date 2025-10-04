@@ -148,7 +148,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Browser Client"
+                "text": "Web Application"
               },
               "body": {
                 "stroke": "#333333",
@@ -244,7 +244,7 @@
             "id": "7fb55bb0-fbff-4b7e-9724-f74e4896c4e1",
             "data": {
               "type": "tm.Process",
-              "name": "Browser Client",
+              "name": "Web Application",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -268,7 +268,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Browser Client"
+                "text": "SQL Database"
               },
               "body": {
                 "stroke": "#333333",
@@ -364,7 +364,7 @@
             "id": "c8b62557-2515-4a0b-8d76-3703df6ebb03",
             "data": {
               "type": "tm.Process",
-              "name": "Browser Client",
+              "name": "SQL Database",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -375,6 +375,15 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -388,7 +397,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Browser Client"
+                "text": "Authorization Provider"
               },
               "body": {
                 "stroke": "#333333",
@@ -484,7 +493,7 @@
             "id": "47198450-f2a3-4656-b6b0-91b82a3e8442",
             "data": {
               "type": "tm.Process",
-              "name": "Browser Client",
+              "name": "Authorization Provider",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -508,7 +517,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Browser Client"
+                "text": "LDAP"
               },
               "body": {
                 "stroke": "#333333",
@@ -604,7 +613,7 @@
             "id": "c507fa9b-de2b-47d6-9c30-b11ff40b0c9b",
             "data": {
               "type": "tm.Process",
-              "name": "Browser Client",
+              "name": "LDAP",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -910,6 +919,112 @@
               {
                 "x": 1700,
                 "y": 420
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Verified",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Verified"
+            ],
+            "id": "6c676b2b-d2ed-4932-803e-13813532eb7e",
+            "source": {
+              "cell": "7fb55bb0-fbff-4b7e-9724-f74e4896c4e1",
+              "port": "a4d24447-579b-4cc6-aa60-c461e2d58cb9"
+            },
+            "target": {
+              "cell": "47198450-f2a3-4656-b6b0-91b82a3e8442",
+              "port": "265ebfb8-939f-44ff-a581-8480dd52cc1c"
+            },
+            "vertices": [
+              {
+                "x": 1420,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Auth \nVerification",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Auth \nVerification"
+            ],
+            "id": "518b7ee4-56bd-48b8-a8ce-13b1b1494964",
+            "source": {
+              "cell": "47198450-f2a3-4656-b6b0-91b82a3e8442",
+              "port": "265ebfb8-939f-44ff-a581-8480dd52cc1c"
+            },
+            "target": {
+              "cell": "7fb55bb0-fbff-4b7e-9724-f74e4896c4e1",
+              "port": "a4d24447-579b-4cc6-aa60-c461e2d58cb9"
+            },
+            "vertices": [
+              {
+                "x": 1500,
+                "y": 200
+              },
+              {
+                "x": 1500,
+                "y": 290
               }
             ]
           }
